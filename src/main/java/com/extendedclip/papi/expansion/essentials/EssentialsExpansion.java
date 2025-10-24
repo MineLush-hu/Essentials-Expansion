@@ -122,7 +122,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
 
                     BalanceTop.Entry[] entries = baltopCache.values().toArray(new BalanceTop.Entry[0]);
                     if (id >= entries.length) {
-                        return "0";
+                        return "---";
                     }
                     return String.valueOf(entries[id].getBalance().longValue());
                 }
@@ -137,7 +137,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
 
                     BalanceTop.Entry[] entries = baltopCache.values().toArray(new BalanceTop.Entry[0]);
                     if (id >= entries.length) {
-                        return "0";
+                        return "---";
                     }
                     return fixMoney(entries[id].getBalance().doubleValue());
                 }
@@ -152,7 +152,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
 
                     BalanceTop.Entry[] entries = baltopCache.values().toArray(new BalanceTop.Entry[0]);
                     if (id >= entries.length) {
-                        return "0";
+                        return "---";
                     }
                     return format.format(entries[id].getBalance().doubleValue());
                 }
@@ -164,7 +164,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
 
                 BalanceTop.Entry[] entries = baltopCache.values().toArray(new BalanceTop.Entry[0]);
                 if (id >= entries.length) {
-                    return "0";
+                    return "---";
                 }
                 return String.valueOf(entries[id].getBalance().doubleValue());
             }
@@ -186,7 +186,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
 
                 BalanceTop.Entry[] entries = baltopCache.values().toArray(new BalanceTop.Entry[0]);
                 if (id >= entries.length) {
-                    return "0";
+                    return "---";
                 }
 
                 if (stripped) {
@@ -227,7 +227,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
 
             if(diff < cooldown) return String.valueOf((int) (cooldown - diff));
 
-            return "0";
+            return "---";
         }
 
         if (identifier.startsWith("kit_last_use_")) {
@@ -298,7 +298,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
             }
 
             if (time <= System.currentTimeMillis()) {
-                return raw ? "0" : DateUtil.formatDateDiff(System.currentTimeMillis());
+                return raw ? "---" : DateUtil.formatDateDiff(System.currentTimeMillis());
             }
 
             if (raw) {
@@ -424,7 +424,7 @@ public class EssentialsExpansion extends PlaceholderExpansion {
             case "unique":
                 return NumberFormat.getInstance().format(essentials.getUserMap().getUniqueUsers());
             case "homes_set":
-                return user.getHomes().isEmpty() ? "0" : String.valueOf(user.getHomes().size());
+                return user.getHomes().isEmpty() ? "---" : String.valueOf(user.getHomes().size());
             case "homes_max":
                 return String.valueOf(essentials.getSettings().getHomeLimit(user));
             case "jailed":
